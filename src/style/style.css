@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Charm");
+.btn {
+  outline: none;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-start {
+  background-color: #1b4d7f;
+  border: 1px solid black;
+  padding: 3px 12px;
+  width: 200px;
+  height: 50px;
+  font-size: x-large;
+}
+.btn-start:hover {
+  background-color: #4599b2;
+}
+
+.title {
+  padding: 0;
+  font-size: 50px;
+}
+
+.title-5languages {
+  color: #b52e28;
+  margin-left: 20px;
+}
+
+.title-5words {
+  color: #1b4d7f;
+  margin-bottom: 0;
+}
+
+.five {
+  font-size: 90px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: Charm, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 800px;
+  width: 500px;
+  padding: 50px 0px;
+  margin: 20px auto;
+  border: 5px double black;
+  border-radius: 25px;
+  box-shadow: 5px 5px #6c757d;
+}
+@media only screen and (max-width: 500px) {
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
