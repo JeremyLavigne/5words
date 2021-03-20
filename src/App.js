@@ -1,6 +1,7 @@
 import { useState } from "react";
-
-import logo from "./assets/logo.png";
+import StartPage from "./components/pages/StartPage";
+import LogPage from "./components/pages/LogPage";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
   const [displayStart, setDisplayStart] = useState(true);
@@ -8,28 +9,26 @@ function App() {
   const [displayHome, setDisplayHome] = useState(false);
 
   const handleClickStart = () => {
-    setDisplayHome(false);
+    setDisplayStart(false);
     setDisplayLog(true);
   };
 
-  return (
-    <main>
-      <h2 className="title">
-        <span className="title-5words">
-          <span className="five">5</span> words
-        </span>
+  const handleClickLog = () => {
+    setDisplayHome(true);
+    setDisplayLog(false);
+  };
 
-        <span className="title-5languages">
-          <span className="five">5</span> languages
-        </span>
-      </h2>
-      <div>
-        <img src={logo} alt="app_logo" />
-      </div>
-      <div className="btn btn-start" onClick={handleClickStart}>
-        Start
-      </div>
-    </main>
+  const handleClickLogOut = () => {
+    setDisplayStart(true);
+    setDisplayHome(false);
+  };
+
+  return (
+    <>
+      {displayStart && <StartPage handleClickStart={handleClickStart} />}
+      {displayLog && <LogPage handleClickLog={handleClickLog} />}
+      {displayHome && <HomePage handleClickLogOut={handleClickLogOut} />}
+    </>
   );
 }
 
