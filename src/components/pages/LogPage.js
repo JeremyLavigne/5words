@@ -1,5 +1,6 @@
 import { useState } from "react";
 import firebase from "../../firebase";
+import "firebase/auth";
 
 function LogPage({ handleUserIsLogged }) {
   const [email, setEmail] = useState("");
@@ -7,6 +8,9 @@ function LogPage({ handleUserIsLogged }) {
   const [password2, setPassword2] = useState("");
   const [displayRegister, setDisplayRegister] = useState(false);
   const [displayError, setDisplayError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(
+    "Oups, something must be wrong..."
+  );
 
   const resetInputs = () => {
     setPassword("");
@@ -25,6 +29,7 @@ function LogPage({ handleUserIsLogged }) {
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
         setDisplayError(true);
         resetInputs();
         setTimeout(() => {
@@ -45,6 +50,7 @@ function LogPage({ handleUserIsLogged }) {
         })
         .catch((error) => {
           console.log(error);
+          setErrorMessage(error.message);
           setDisplayError(true);
           resetInputs();
           setTimeout(() => {
@@ -100,7 +106,7 @@ function LogPage({ handleUserIsLogged }) {
         </button>
       </div>
 
-      {displayError && <div>Oups, something must be wrong...</div>}
+      {displayError && <div>{errorMessage}</div>}
 
       <div className="log-page-bottom">
         <div className="log-page-bottom-bloc">
