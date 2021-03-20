@@ -7,27 +7,32 @@ function App() {
   const [displayStart, setDisplayStart] = useState(true);
   const [displayLog, setDisplayLog] = useState(false);
   const [displayHome, setDisplayHome] = useState(false);
+  const [user, setUser] = useState(null);
 
   const handleClickStart = () => {
     setDisplayStart(false);
     setDisplayLog(true);
   };
 
-  const handleClickLog = () => {
+  const handleUserIsLogged = (loggedUser) => {
     setDisplayHome(true);
     setDisplayLog(false);
+    setUser(loggedUser);
   };
 
   const handleClickLogOut = () => {
     setDisplayStart(true);
     setDisplayHome(false);
+    setUser(null);
   };
 
   return (
     <>
       {displayStart && <StartPage handleClickStart={handleClickStart} />}
-      {displayLog && <LogPage handleClickLog={handleClickLog} />}
-      {displayHome && <HomePage handleClickLogOut={handleClickLogOut} />}
+      {displayLog && <LogPage handleUserIsLogged={handleUserIsLogged} />}
+      {displayHome && (
+        <HomePage handleClickLogOut={handleClickLogOut} user={user} />
+      )}
     </>
   );
 }
