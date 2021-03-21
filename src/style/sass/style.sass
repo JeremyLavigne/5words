@@ -1,0 +1,37 @@
+@import '_button'
+@import '_colors'
+@import '_title'
+@import '_input'
+@import '_log-page'
+@import url('https://fonts.googleapis.com/css2?family=Charm')
+
+$font-main: Charm, sans-serif
+
+body
+  margin: 0
+  padding: 0
+  background-color: $around
+  font-family: $font-main
+
+main
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  background-color: white
+
+  height: 800px
+  width: 500px
+  padding: 50px 0px
+  margin: 20px auto
+
+  border: 5px double black
+  border-radius: 25px
+  box-shadow: 5px 5px $secondary-two
+    
+  @media only screen and (max-width: 500px)
+    width: 100%
+    margin: 0
+	
+.main-log-page
+  justify-content: space-around
