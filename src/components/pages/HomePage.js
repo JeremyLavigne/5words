@@ -4,19 +4,26 @@ import FirstPick from "./FirstPick";
 
 function HomePage({ handleClickLogOut, user }) {
   const [loading, setLoading] = useState(true);
-  const [firstConnection, setFirstConnection] = useState(true);
+  const [firstConnection, setFirstConnection] = useState(false);
+  const [userId, setUserId] = useState(user ? user.uid : "");
 
   useEffect(() => {
-    db.collection("users")
-      .doc(user.uid)
-      .get()
-      .then((userData) => {
-        setFirstConnection(userData.data().firstConnection);
-        setLoading(false);
-      });
-  }, [user.uid]);
+    setUserId(user ? user.uid : "");
+  }, [user]);
 
-  console.log(firstConnection);
+  useEffect(() => {
+    if (userId !== "") {
+      db.collection("users")
+        .doc(userId)
+        .get()
+        .then((userData) => {
+          setFirstConnection(userData.data().firstConnection);
+          setLoading(false);
+        });
+    }
+  }, [userId]);
+
+  console.log(userId, firstConnection);
 
   return (
     <main>

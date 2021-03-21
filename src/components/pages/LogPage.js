@@ -27,7 +27,8 @@ function LogPage({ handleUserIsLogged }) {
         // Create user entry
         db.collection("users")
           .doc(userCredential.user.uid)
-          .set({ firstConnection: true, words: [] });
+          .set({ firstConnection: true, words: [] })
+          .catch((error) => console.log(error));
         // Signed in
         const user = userCredential.user;
         handleUserIsLogged(user);
