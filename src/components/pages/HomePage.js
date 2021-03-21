@@ -23,8 +23,6 @@ function HomePage({ handleClickLogOut, user }) {
     }
   }, [userId]);
 
-  console.log(userId, firstConnection);
-
   return (
     <main>
       {loading ? (
@@ -32,7 +30,10 @@ function HomePage({ handleClickLogOut, user }) {
       ) : (
         <>
           {firstConnection ? (
-            <FirstPick />
+            <FirstPick
+              userId={userId}
+              setFirstConnection={setFirstConnection}
+            />
           ) : (
             <div>
               Home Page

@@ -24,11 +24,6 @@ function LogPage({ handleUserIsLogged }) {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Create user entry
-        db.collection("users")
-          .doc(userCredential.user.uid)
-          .set({ firstConnection: true, words: [] })
-          .catch((error) => console.log(error));
         // Signed in
         const user = userCredential.user;
         handleUserIsLogged(user);
@@ -50,6 +45,11 @@ function LogPage({ handleUserIsLogged }) {
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
+          // Create user entry
+          db.collection("users")
+            .doc(userCredential.user.uid)
+            .set({ firstConnection: true, words: [], languages: [] })
+            .catch((error) => console.log(error));
           // Signed in
           const user = userCredential.user;
           handleUserIsLogged(user);
