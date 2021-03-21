@@ -1,5 +1,6 @@
 import { useState } from "react";
 import firebase from "../../firebase";
+import { db } from "../../firebase";
 import "firebase/auth";
 
 function LogPage({ handleUserIsLogged }) {
@@ -23,6 +24,10 @@ function LogPage({ handleUserIsLogged }) {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
+        // Create user entry
+        db.collection("users")
+          .doc(userCredential.user.uid)
+          .set({ firstConnection: true, words: [] });
         // Signed in
         const user = userCredential.user;
         handleUserIsLogged(user);

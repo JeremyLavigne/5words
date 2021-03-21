@@ -74,6 +74,7 @@
   margin: 0 20px 10px 0;
   border: 1px solid black;
   border-radius: 5px;
+  padding-left: 5px;
 }
 
 .pass-input {
@@ -116,6 +117,7 @@ main {
 @media only screen and (max-width: 500px) {
   main {
     width: 100%;
+    min-width: 420px;
     margin: 0;
   }
 }
