@@ -121,6 +121,16 @@
   background-color: #4fa450;
 }
 
+.word-review-block {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.word-review-translation {
+  margin-top: 70px;
+}
+
 .log-page-bottom {
   display: flex;
 }
