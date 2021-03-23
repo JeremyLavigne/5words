@@ -24,10 +24,11 @@
 .btn-logout {
   background-color: #b52e28;
   border: 1px solid black;
-  width: 100px;
-  height: 30px;
+  width: 70px;
+  height: 25px;
   margin-top: 10px;
-  font-size: large;
+  align-self: flex-end;
+  font-size: small;
 }
 .btn-logout:hover {
   background-color: #4599b2;
@@ -94,6 +95,42 @@
   font-size: x-large;
 }
 
+.game-line {
+  display: flex;
+  background-color: #f8f9fa;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #6c757d;
+}
+
+.level-indicator {
+  width: 50px;
+  height: 15px;
+  background-color: black;
+  margin: 5px 10px 0 20px;
+  transform: skew(-30deg);
+  cursor: pointer;
+}
+.level-indicator-tiny {
+  width: 20px;
+}
+
+.level-done {
+  background-color: #4fa450;
+}
+
+.word-review-block {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.word-review-translation {
+  margin-top: 70px;
+}
+
 .log-page-bottom {
   display: flex;
 }
@@ -122,6 +159,29 @@ h3 {
   flex-wrap: wrap;
   max-height: 70%;
   overflow: auto;
+}
+
+.home-page-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 100%;
+}
+
+.game-block {
+  width: 80%;
+}
+
+.review-word-block {
+  align-self: flex-start;
+  margin-left: 20px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #4599b2;
+  color: white;
+  cursor: pointer;
 }
 
 .word {

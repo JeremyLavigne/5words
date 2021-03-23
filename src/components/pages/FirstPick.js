@@ -96,7 +96,7 @@ function FirstPick({ userId, setFirstConnection }) {
         .set({
           firstConnection: false,
           words: userWords,
-          Languages: userLanguages,
+          languages: userLanguages,
         })
         .then(() => setFirstConnection(false))
         .catch((error) => console.log(error));
